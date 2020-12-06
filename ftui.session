@@ -2,6 +2,9 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
+imap <C-G>S <Plug>ISurround
+imap <C-G>s <Plug>Isurround
+imap <C-S> <Plug>Isurround
 inoremap <silent> <Plug>(fzf-maps-i) :call fzf#vim#maps('i', 0)
 inoremap <expr> <Plug>(fzf-complete-buffer-line) fzf#vim#complete#buffer_line()
 inoremap <expr> <Plug>(fzf-complete-line) fzf#vim#complete#line()
@@ -39,8 +42,8 @@ nnoremap  p "*p " paste from  sysClipBoard
 nnoremap  c ggVG"*y " copy all to sysClipBoard
 nnoremap  d ggdG " delete all
 nnoremap  w :w! " fast saving active file
-nnoremap  ev :vsplit /home/$USER/koh-git/dotfiles/.vimrc  
-nnoremap  sv :source /home/$USER/koh-git/dotfiles/.vimrc  
+nnoremap  ev :vsplit ~/koh-git/dotfiles/.vimrc  
+nnoremap  sv :source ~/koh-git/dotfiles/.vimrc  
 vnoremap < <gv
 vnoremap > >gv
 vnoremap J :m '>+1gv=gv
@@ -57,17 +60,18 @@ nmap ySs <Plug>YSsurround
 nmap yss <Plug>Yssurround
 nmap yS <Plug>YSurround
 nmap ys <Plug>Ysurround
-onoremap <Plug>(highlightedyank) y
-xnoremap <silent> <Plug>(highlightedyank) :call highlightedyank#obsolete#highlightedyank#yank('x')
-nnoremap <silent> <Plug>(highlightedyank) :call highlightedyank#obsolete#highlightedyank#yank('n')
 nnoremap <SNR>69_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <silent> <Plug>(startify-open-buffers) :call startify#open_buffers()
 nnoremap <silent> <Plug>SurroundRepeat .
 onoremap <silent> <Plug>(fzf-maps-o) :call fzf#vim#maps('o', 0)
 xnoremap <silent> <Plug>(fzf-maps-x) :call fzf#vim#maps('x', 0)
 nnoremap <silent> <Plug>(fzf-maps-n) :call fzf#vim#maps('n', 0)
+nnoremap <C-H> 
+nnoremap <C-L> 
+nnoremap <C-K> 
+nnoremap <C-J> <NL>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
 noremap <Down> <Nop>
@@ -78,6 +82,7 @@ map <F2> :mksession! $SESSIONHOME\autosave.vim  " Quick write session with F2
 imap S <Plug>ISurround
 imap s <Plug>Isurround
 imap  <Plug>Isurround
+imap ,/ </F<i 
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set autoread
@@ -85,6 +90,8 @@ set autowrite
 set backspace=indent,eol,start
 set expandtab
 set fileencodings=ucs-bom,utf-8,default,latin1
+set guifont=Consolas:h10
+set guioptions=aegit
 set helplang=de
 set hidden
 set history=500
@@ -93,47 +100,50 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
-set nomodeline
 set path=.,/usr/include,,,**
-set printoptions=paper:a4
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/vim-airline,~/.vim/plugged/fzf,~/.vim/plugged/fzf.vim,~/.vim/plugged/vim-airline-themes,~/.vim/plugged/vim-fugitive,~/.vim/plugged/vim-surround,~/.vim/plugged/undotree,~/.vim/plugged/vimwiki,~/.vim/plugged/vim-startify,~/.vim/plugged/vim-highlightedyank,~/.vim/plugged/vim-obsession,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim80,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/vim-airline,~/.vim/plugged/fzf,~/.vim/plugged/fzf.vim,~/.vim/plugged/vim-airline-themes,~/.vim/plugged/gruvbox,~/.vim/plugged/vim-fugitive,~/.vim/plugged/vim-surround,~/.vim/plugged/undotree,~/.vim/plugged/vimwiki,~/.vim/plugged/vim-startify,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,~/.vim/after
 set scrolloff=10
 set shiftwidth=4
-set shortmess=filnxtToOI
+set shortmess=filnxtToOSI
 set showcmd
 set showmatch
 set smartcase
 set softtabstop=4
 set splitbelow
 set splitright
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set noswapfile
 set tabstop=4
 set timeoutlen=500
 set wildmenu
 set wildmode=list:full
-let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/koh-git/dotfiles
+silent tabonly
+cd /opt/fhem/www/tablet
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 /opt/fhem/www/tablet/index.html
-badd +0 .vimrc
 argglobal
-silent! argdel *
-edit /opt/fhem/www/tablet/index.html
+%argdel
+$argadd index.html
+$argadd 1_multimedia.html
+$argadd 1_start.html
+edit index.html
 set splitbelow splitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
 setlocal keymap=
 setlocal noarabic
-setlocal noautoindent
+setlocal autoindent
 setlocal backupcopy=
+setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -141,11 +151,11 @@ setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
 setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=j1,J1
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
-set colorcolumn=81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335
-setlocal colorcolumn=81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335
+set colorcolumn=80
+setlocal colorcolumn=80
 setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
 setlocal commentstring=<!--%s-->
 setlocal complete=.,w,b,u,t,i
@@ -158,6 +168,7 @@ setlocal nocursorbind
 setlocal nocursorcolumn
 set cursorline
 setlocal cursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -186,7 +197,7 @@ setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
-setlocal imsearch=0
+setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
 setlocal indentexpr=HtmlIndent()
@@ -198,9 +209,10 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
-setlocal nomodeline
+setlocal modeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
@@ -217,8 +229,11 @@ setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
+setlocal scrolloff=-1
 setlocal shiftwidth=4
 setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
 setlocal softtabstop=4
@@ -226,6 +241,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
@@ -235,33 +251,43 @@ setlocal syntax=html
 endif
 setlocal tabstop=4
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 17 - ((16 * winheight(0) + 19) / 38)
+let s:l = 13 - ((12 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 028|
-lcd /opt/fhem/www/tablet
+13
+normal! 033|
 tabnext 1
-if exists('s:wipebuf')
+badd +1 index.html
+badd +27 1_multimedia.html
+badd +20 1_start.html
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToOI
+set winheight=1 winwidth=20 shortmess=filnxtToOSI
+set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
-let &so = s:so_save | let &siso = s:siso_save
+let &g:so = s:so_save | let &g:siso = s:siso_save
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
