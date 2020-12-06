@@ -1,116 +1,36 @@
 <!DOCTYPE html>
 <html>
-				<head>
-								<script src="js/fhem-tablet-ui.js" defer></script>
-								<title>HE-FTUI</title>
-								<meta name="gridster_cols" content="10"/>
-								<meta name="gridster_rows" content="10"/>
-				</head>
-				<body>
-								<div class="page" id="1_multimedia">
-												<div class="gridster">
-																<ul>
-														<li data-row="3" data-col="1" data-sizex="5" data-sizey="4"> 
-																		<header>AVR</header>
-																		<div class="sheet">
-																						<div class="row">
-																										<div class="cell">
-																														<div data-type="label" class="darker bottom-space " >Heute</div>
-																										</div>
-																						</div>
-																						<div class="row">
-																										<div class="cell">
-																														<div data-type="label" data-device="Wetter" data-get="fc1_date" class="darker bottom-space" data-substitution="toDate().eeee()"></div>
-																														<div data-type="weather" data-device="Wetter" data-get="fc1_weatherDayIcon" class="big"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc1_weatherDay"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc1_tempMin" class="cell inline blue" data-unit="°C"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc1_tempMax" class="cell inline red" data-unit="°C"></div>
-																										</div> 
-																										<div class="cell">
-																														<div data-type="label" data-device="Wetter" data-get="fc2_date" class="darker bottom-space" data-substitution="toDate().eeee()"></div>
-																														<div data-type="weather" data-device="Wetter" data-get="fc2_weatherDayIcon" class="big"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc2_weatherDay"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc2_tempMin" class="cell inline blue" data-unit="°C"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc2_tempMax" class="cell inline red" data-unit="°C"></div>
-																										</div> 
-																										<div class="cell">
-																														<div data-type="label" data-device="Wetter" data-get="fc3_date" class="darker bottom-space" data-substitution="toDate().eeee()"></div>
-																														<div data-type="weather" data-device="Wetter" data-get="fc3_weatherDayIcon" class="big"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc3_weatherDay"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc3_tempMin" class="cell inline blue" data-unit="°C"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc3_tempMax" class="cell inline red" data-unit="°C"></div>
-																										</div> 
-																										<div class="cell">
-																														<div data-type="label" data-device="Wetter" data-get="fc4_date" class="darker bottom-space" data-substitution="toDate().eeee()"></div>
-																														<div data-type="weather" data-device="Wetter" data-get="fc4_weatherDayIcon" class="big"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc4_weatherDay"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc4_tempMin" class="cell inline blue" data-unit="°C"></div>
-																														<div data-type="label" data-device="Wetter" data-get="fc4_tempMax" class="cell inline red" data-unit="°C"></div>
-																										</div> 
-																						</div> 
-																		</div>
-														</li>
+    <head>
+    </head>
+    <body>
+        <div class="page" id="1_multimedia-content">
+            <div class="gridster">
+                <ul>
+                    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+                        <header>
+                            <div data-type="label" class="medium orange">Widget 1</div>
+                        </header>
+                    </li>
 
-														<li data-row="5" data-col="1" data-sizex="5" data-sizey="4"> 
-																		<header>ToDo</header>
-																		<div class="sheet">
-																						<div class="row">
-																										<div class="cell">
-																										</div> 
-																						</div> 
-																		</div>
-														</li>
-														<li data-row="9" data-col="1" data-sizex="5" data-sizey="2"> 
-																		<header>Kraftstoff</header>
-																		<div class="sheet">
-																						<div class="row">
-																										<div class="cell">
-																														<div data-type="label">Alhambra (Diesel)</div>
-																														<img src="img/tankstellen/shell.png" alt"Shell" width="50" />
-																														<div data-type="label" data-device="Shell" data-get="Diesel" data-pre-text="Shell (Eh): " data-post-text=" €" data-substitution="s/\./,/g"></div>
-																										</div> 
-																										<div class="cell">
-																														<div data-type="label">R1200 GS (Super)</div>
-																														<img src="img/tankstellen/shell.png" alt"Shell" width="50" />
-																														<div data-type="label" data-device="Shell" data-get="SuperE5" data-pre-text="Shell (Eh): " data-post-text=" €" data-substitution="s/\./,/g"></div>
-																										</div> 
-																						</div> 
-																		</div>
-														</li>
+                    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
+                        <header>
+                            <div data-type="label" class="medium orange">Widget 2</div>
+                        </header>
+                    </li>
 
-														<li data-row="7" data-col="1" data-sizex="4" data-sizey="4"> 
-																		<header>Home Status </header>
-																		<div class="sheet">
-																						<div class="row">
-																										<div class="cell">
-																										</div> 
-																						</div> 
-																		</div>
-														</li>
+                    <li data-row="4" data-col="1" data-sizex="2" data-sizey="2">
+                        <header>
+                            <div data-type="label" class="medium orange">Widget 3</div>
+                        </header>
+                    </li>
 
-														<li data-row="9" data-col="6" data-sizex="4" data-sizey="4"> 
-																		<header>Wichtiges</header>
-																		<div class="sheet">
-																						<div class="row">
-																										<div class="cell">
-
-																										</div> 
-																						</div> 
-																		</div>
-														</li>
-
- 														<li data-row="12" data-col="6" data-sizex="4" data-sizey="2"> 
-																		<header>Müll</header>
-																		<div class="sheet">
-																						<div class="row">
-																										<div class="cell">
-																										</div> 
-																						</div> 
-																		</div>
-														</li>
-
-																</ul>
-												</div>
-								</div>
-				</body>
+                    <li data-row="4" data-col="3" data-sizex="2" data-sizey="2">
+                        <header>
+                            <div data-type="label" class="medium orange">Widget 4</div>
+                        </header>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
 </html>

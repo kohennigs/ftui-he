@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="js/fhem-tablet-ui.js" defer></script>
-		<title>HE-FTUI</title>
-		<meta name="gridster_cols" content="10"/>
-		<meta name="gridster_rows" content="10"/>
-	</head>
-	<body>
-		<div class="gridster">
-			<ul>
-				<li data-row="1" data-col="1" data-sizex="1" data-sizey="10"> 
-					<header>Nav</header>
-					<div class="sheet">
-						<div class="row">
-							<div class="cell">
-											<!-- data-load gibt das Ziel an wohin die Seite geladen werden soll:
-									     Hier Zeile 28 id= 1_stat
-											class = defalut definiert den Start Button der geladne wird! 
-											 --!>
-								<div data-type="pagebutton" data-url="#1_start.html" data-active-pattern="{.*/|.*index.html|.*#1_start.html}" data-load="#1_start" data-icon="fa-home"  class="default top-space" > </div>
-								<div data-type="pagebutton" data-url="#1_multimedia.html" data-active-pattern="{.*multimedia.html}" data-load="#1_multimedia" data-icon="fa-music"  class="top-space" > </div>
-							</div> 
-						</div> 
-					</div>
-				</li>
-				<!-- Defintion der Unterseite--> 
-				<li data-row="1" data-col="2" data-sizex="9" data-sizey="10">  
- 				<div class="page" id="1_start"></div>
- 				<div class="page" id="1_multimedia"></div>
-				</li>
-			</ul>
-		</div>
-	</body>
-
+    <head>
+        <script src="js/fhem-tablet-ui.js" defer></script>
+        <title>HE-FTUI</title>
+        <meta name="gridster_cols" content="10"/>
+        <meta name="gridster_rows" content="10"/>
+    </head>
+    <body>
+        <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="10">
+                    <header>Nav</header>
+                    <div class="sheet">
+                        <div class="row">
+                            <div class="cell">
+                                <div data-type="pagebutton" data-url="#1_start.html" data-load="#1_start-content" data-active-pattern="(.*/||.*index.html||.*#1_start.html)" data-icon="fa-home" class="default top-space"></div>
+                                <div data-type="pagebutton" data-url="#1_multimedia.html" data-load="#1_multimedia-content" data-active-pattern=".*#1_multimedia.html" data-icon="fa-music" class="top-space"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="2" data-sizex="9" data-sizey="10">
+                    <div class="page" id="1_start-content"></div>
+                    <div class="page" id="1_multimedia-content"></div>
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>
