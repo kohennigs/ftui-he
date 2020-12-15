@@ -6,28 +6,46 @@
         <div class="page" id="1_multimedia-content">
             <div class="gridster">
                 <ul>
-                    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-                        <header>
-                            <div data-type="label" class="medium orange">Widget 1</div>
-                        </header>
+                    <li data-row="1" data-col="1" data-sizex="5" data-sizey="9">
+                        <header>Spotify </header>
+                        <div class="sheet"> 
+                            <div class="row"> 
+                                <div class="cell"> 
+                                    <div data-type="image" data-device="Spotify" data-get="track_album_cover_medium" data-size="150px" data-refresh="5" class="nocache top-space"></div>
+                                </div>
+                                <div class="cell"> 
+                                    <!-- Track Info -->
+                                    <div data-type="label" data-device="Spotify" data-get="track_artist_name" data-post-text="&nbsp; - " class="inline top-space" data-refresh="5"></div>
+                                    <div data-type="label" data-device="Spotify" data-get="track_name" class="inline top-space" data-refresh="5"></div>
+                                    <div data-type="label" data-device="Spotify" data-get="track_album_name" class="top-space" data-refresh="5"></div>
+                                    <div data-type="label" data-device="Spotify" data-get="progress" data-post-text="&nbsp;/" class="inline top-space" data-refresh="5"></div> 
+                                    <div data-type="label" data-device="Spotify" data-get="track_duration" class="inline top-space" data-refresh="5"></div>
+
+                                </div>
+                            </div>
+                            <div class="row"> 
+
+                                <div class="cell bg-blue"> 
+                                    <!-- Controlls --> 
+                                    <div data-type="push" data-device="Spotify" data-cmd="set" data-set-on="skipToPrevious" data-icon="fa-step-backward" class="inline"></div> 
+                                    <div data-type="push" data-device="Spotify" data-cmd="set" data-set-on="resume" data-icon="fa-play" class="inline"></div> 
+                                    <div data-type="push" data-device="Spotify" data-cmd="set" data-set-on="pause" data-icon="fa-pause" class="inline"></div> 
+                                    <div data-type="push" data-device="Spotify" data-cmd="set" data-set-on="skipToNext" data-icon="fa-step-forward" class="inline"></div> 
+                                </div>
+                                <div class="cell bg-blue"> 
+                                    <div data-type="select" data-cmd="set" data-device="Spotify" data-set="transferPlayback" data-list="device-list" data-alias="device-names" data-get="device_active_id" </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
 
-                    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
-                        <header>
-                            <div data-type="label" class="medium orange">Widget 2</div>
-                        </header>
+                    <li data-row="1" data-col="3" data-sizex="4" data-sizey="5">
+                        <header>W2 </header>
                     </li>
 
-                    <li data-row="4" data-col="1" data-sizex="2" data-sizey="2">
-                        <header>
-                            <div data-type="label" class="medium orange">Widget 3</div>
-                        </header>
-                    </li>
-
-                    <li data-row="4" data-col="3" data-sizex="2" data-sizey="2">
-                        <header>
-                            <div data-type="label" class="medium orange">Widget 4</div>
-                        </header>
+                    <li data-row="4" data-col="3" data-sizex="4" data-sizey="4">
+                        <header>W4 </header>
                     </li>
                 </ul>
             </div>

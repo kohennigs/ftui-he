@@ -10,10 +10,10 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <meta name="toast" content="0" />
+        <meta name="toast" content="1" />
 
         <meta name="gridster_cols" content="10"/>
-        <meta name="gridster_rows" content="10"/>
+        <meta name="gridster_rows" content="9"/>
 
         <!-- Inhalt kann nicht verschoben werden -->
         <meta name="gridster_disable" content="1"/>
@@ -23,13 +23,15 @@
     <body>
         <div class="gridster">
             <ul>
-                <li data-row="1" data-col="1" data-sizex="1" data-sizey="10">
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="9">
                     <header>Menü</header>
                     <div class="sheet">
                         <div class="row">
                             <div class="cell top-align">
                                 <div data-type="pagebutton" data-url="#1_start.html" data-load="#1_start-content" data-active-pattern="(.*/||.*index.html||.*#1_start.html)" data-icon="fa-home" class="default top-space"></div>
                                 <div data-type="pagebutton" data-url="#1_multimedia.html" data-load="#1_multimedia-content" data-active-pattern=".*#1_multimedia.html" data-icon="fa-music" class="top-space"></div>
+                                <div data-type="pagebutton" data-url="#1_wohnzimmer.html" data-load="#1_wohnzimmer-content" data-active-pattern=".*#1_wohnzimmer.html" data-icon="fa-couch" class="top-space"></div>
+                                <div data-type="pagebutton" data-url="#1_keller.html" data-load="#1_keller-content" data-active-pattern=".*#1_keller.html" data-icon="fa-bomb" class="top-space"></div>
                             </div>
                         </div>
                         <div class="row">
@@ -43,6 +45,8 @@
                 <li data-row="1" data-col="2" data-sizex="9" data-sizey="10">
                     <div class="page" id="1_start-content"></div>
                     <div class="page" id="1_multimedia-content"></div>
+                    <div class="page" id="1_wohnzimmer-content"></div>
+                    <div class="page" id="1_keller-content"></div>
                 </li>
             </ul>
         </div>
